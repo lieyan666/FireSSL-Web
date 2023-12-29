@@ -2,7 +2,7 @@
  * @Author: Lieyan
  * @Date: 2023-12-29 22:49:00
  * @LastEditors: Lieyan
- * @LastEditTime: 2023-12-29 23:40:13
+ * @LastEditTime: 2023-12-30 00:32:03
  * @FilePath: /FireSSL-Web/src/views/RootCAView.vue
  * @Description: 
  * @Contact: QQ: 2102177341  Website: lieyan.space  Github: @lieyan666
@@ -46,9 +46,9 @@ export default {
     };
   },
   mounted() {
-    // axios.get('https://data.firessl.chycloud.top/rootCA')
     axios
-      .get("https://firessl-rootca.lieyan.workers.dev/rootCA")
+      .get("https://data.firessl.chycloud.top/rootCA")
+      // axios.get("https://firessl-rootca.lieyan.workers.dev/rootCA")
       .then((response) => {
         this.codeContent = response.data;
       })
