@@ -2,7 +2,7 @@
  * @Author: Lieyan
  * @Date: 2023-12-29 22:49:00
  * @LastEditors: Lieyan
- * @LastEditTime: 2023-12-30 00:32:03
+ * @LastEditTime: 2023-12-30 01:32:51
  * @FilePath: /FireSSL-Web/src/views/RootCAView.vue
  * @Description: 
  * @Contact: QQ: 2102177341  Website: lieyan.space  Github: @lieyan666
@@ -23,6 +23,12 @@ import SupportIcon from "../components/icons/IconSupport.vue";
       <DocumentationIcon />
     </template>
     <template #heading>RootCA Contents</template>
+    <a
+      href="https://data.firessl.chycloud.top/rootCA"
+      target="_blank"
+      rel="noopener"
+      >Data</a
+    >
     <code>{{ codeContent }}</code>
   </RootCAItem>
   <!--
@@ -47,7 +53,14 @@ export default {
   },
   mounted() {
     axios
-      .get("https://data.firessl.chycloud.top/rootCA")
+      .get("https://data.firessl.chycloud.top/rootCA", {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      })
       // axios.get("https://firessl-rootca.lieyan.workers.dev/rootCA")
       .then((response) => {
         this.codeContent = response.data;
